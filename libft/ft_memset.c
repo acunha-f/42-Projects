@@ -6,13 +6,13 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:25:27 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/11 18:39:19 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:24:22 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(char *str, int c, int n)
+void	*ft_memset(void *str, int c, int n)
 {
 	int				i;
 	unsigned char	*s;

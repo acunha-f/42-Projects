@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:16:15 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 19:02:42 by acunha-f         ###   ########.fr       */
+/*   Created: 2023/10/23 21:09:22 by acunha-f          #+#    #+#             */
+/*   Updated: 2023/10/23 21:12:34 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, int n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int				i;
-	unsigned char	*d;
-	unsigned char	*s;
+	size_t	i;
+	size_t	j;
+	size_t	d;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
 	i = 0;
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	while (i < n)
-	{
-		d[i] = s[i];
+	j = 0;
+	while (dst[i])
 		i++;
+	d = i;
+	while (j < size - d - 1 && src[j])
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
 	}
-	return ((unsigned char *)dest);
+	dst[i] = '\0';
+	j = 0;
+	while (src[j])
+		j++;
+	return (j + d);
 }
 /*
-int	main(int ac, char **av)
+int main(void)
 {
-	if (ac != 3)
-		return ('\0');
-	ft_memcpy(av[1], av[2], 5);
-	printf("%s\n", av[1]);
-} */
+    char    a[50] = "12345";
+
+    printf("%d\n", ft_strlcat(a, "abcde", 11));
+}*/

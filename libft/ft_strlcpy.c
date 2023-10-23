@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:16:15 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 19:02:42 by acunha-f         ###   ########.fr       */
+/*   Created: 2023/10/23 19:40:33 by acunha-f          #+#    #+#             */
+/*   Updated: 2023/10/23 19:59:23 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, int n)
+int	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int				i;
-	unsigned char	*d;
-	unsigned char	*s;
+	size_t	i;
+	int		j;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
 	i = 0;
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	while (i < n)
+	j = 0;
+	while (src[j])
+		j++;
+	if (dst != NULL && size > 0)
 	{
-		d[i] = s[i];
-		i++;
+		while (i < size - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	return ((unsigned char *)dest);
+	return (j);
 }
 /*
-int	main(int ac, char **av)
+int main(void)
 {
-	if (ac != 3)
-		return ('\0');
-	ft_memcpy(av[1], av[2], 5);
-	printf("%s\n", av[1]);
-} */
+    char    a[6] = "12345";
+
+    printf("%d\n", ft_strlcpy(a, "abcde", 6));
+}*/

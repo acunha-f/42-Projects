@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:16:15 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 19:02:42 by acunha-f         ###   ########.fr       */
+/*   Created: 2023/10/23 21:25:16 by acunha-f          #+#    #+#             */
+/*   Updated: 2023/10/23 21:35:02 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, int n)
+char	*ft_strnstr(char *b, const char *l, size_t len)
 {
-	int				i;
-	unsigned char	*d;
-	unsigned char	*s;
+	size_t	i;
+	int		j;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
 	i = 0;
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	while (i < n)
+	if (l[i] == '\0')
+		return (&b[i]);
+	while (b[i] && i < len)
 	{
-		d[i] = s[i];
+		if (b[i] == l[0])
+		{
+			j = 0;
+			while (b[i + j] == l[j] && l[j] != '\0')
+				j++;
+			if (l[j] == '\0')
+				return (&b[i]);
+		}
 		i++;
 	}
-	return ((unsigned char *)dest);
+	return (NULL);
 }
 /*
-int	main(int ac, char **av)
+int main(void)
 {
-	if (ac != 3)
-		return ('\0');
-	ft_memcpy(av[1], av[2], 5);
-	printf("%s\n", av[1]);
-} */
+    printf("%s\n", ft_strnstr("eu gos gosto bue de gosto", "gosto", 12));
+} not finished */

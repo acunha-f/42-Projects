@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:16:15 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 19:02:42 by acunha-f         ###   ########.fr       */
+/*   Created: 2023/10/23 21:21:52 by acunha-f          #+#    #+#             */
+/*   Updated: 2023/10/23 21:32:51 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, int n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int				i;
-	unsigned char	*d;
-	unsigned char	*s;
+	unsigned char	*t1;
+	unsigned char	*t2;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	i = 0;
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	while (i < n)
+	t1 = (unsigned char *)s1;
+	t2 = (unsigned char *)s2;
+	while (n > 0)
 	{
-		d[i] = s[i];
-		i++;
+		if (*t1 != *t2)
+			return (*t1 - *t2);
+		t1++;
+		t2++;
+		n--;
 	}
-	return ((unsigned char *)dest);
+	return (0);
 }
 /*
-int	main(int ac, char **av)
+int main(void)
 {
-	if (ac != 3)
-		return ('\0');
-	ft_memcpy(av[1], av[2], 5);
-	printf("%s\n", av[1]);
-} */
+    printf("%d\n", ft_memcmp("alobit", "alobia", 6));
+}*/

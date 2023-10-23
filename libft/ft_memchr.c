@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:16:15 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 19:02:42 by acunha-f         ###   ########.fr       */
+/*   Created: 2023/10/23 21:19:11 by acunha-f          #+#    #+#             */
+/*   Updated: 2023/10/23 21:34:19 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int				i;
-	unsigned char	*d;
-	unsigned char	*s;
+	unsigned char	*str;
+	unsigned char	a;
+	size_t			i;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
+	str = (unsigned char *)s;
+	a = (unsigned char)c;
 	i = 0;
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	while (i < n)
+	while (str[i] && i < n)
 	{
-		d[i] = s[i];
+		if (str[i] == a)
+			return (&str[i]);
 		i++;
 	}
-	return ((unsigned char *)dest);
+	return (NULL);
 }
-/*
-int	main(int ac, char **av)
+
+/* int main(void)
 {
-	if (ac != 3)
-		return ('\0');
-	ft_memcpy(av[1], av[2], 5);
-	printf("%s\n", av[1]);
-} */
+    unsigned char   *res;
+
+    res = (unsigned char *)ft_memchr("abcdef", 'c', 2);
+    printf("%s\n", res);
+} not finished */

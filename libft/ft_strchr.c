@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:16:15 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 19:02:42 by acunha-f         ###   ########.fr       */
+/*   Created: 2023/10/23 21:14:05 by acunha-f          #+#    #+#             */
+/*   Updated: 2023/10/23 21:33:21 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, int n)
+char	*ft_strchr(char *s, int c)
 {
-	int				i;
-	unsigned char	*d;
-	unsigned char	*s;
+	int		i;
+	char	a;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
+	a = (char)c;
 	i = 0;
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	while (i < n)
+	while (s[i])
 	{
-		d[i] = s[i];
+		if (s[i] == a)
+			return (&s[i]);
 		i++;
 	}
-	return ((unsigned char *)dest);
+	return (NULL);
 }
 /*
-int	main(int ac, char **av)
+int main(void)
 {
-	if (ac != 3)
-		return ('\0');
-	ft_memcpy(av[1], av[2], 5);
-	printf("%s\n", av[1]);
-} */
+    printf("%s\n", ft_strchr("abcdef", 'c'));
+}*/
