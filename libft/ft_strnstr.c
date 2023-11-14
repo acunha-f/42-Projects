@@ -6,20 +6,20 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:25:16 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/11/14 20:14:58 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:56:16 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(char *b, const char *l, size_t len)
+char	*ft_strnstr(const char *b, const char *l, size_t len)
 {
 	size_t	i;
 	int		j;
 
 	i = 0;
 	if (l[i] == '\0')
-		return (&b[i]);
+		return ((char *)&b[i]);
 	while (b[i] && i < len)
 	{
 		if (b[i] == l[0])
@@ -30,7 +30,7 @@ char	*ft_strnstr(char *b, const char *l, size_t len)
 			if (i + j > len)
 				return (NULL);
 			if (l[j] == '\0')
-				return (&b[i]);
+				return ((char *)&b[i]);
 		}
 		i++;
 	}

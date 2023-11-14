@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:30:34 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/11/14 18:49:22 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:53:57 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strrchr(char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-char	*ft_strnstr(char *b, const char *l, size_t len);
+char	*ft_strnstr(const char *b, const char *l, size_t len);
 int		ft_atoi(const char *str);
 
 void	*ft_calloc(size_t nmemb, size_t size);
