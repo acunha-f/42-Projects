@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:16:37 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 21:33:43 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:09:43 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(char *s, int c)
 	i = 0;
 	while (s[i])
 		i++;
-	while (i > 0)
+	while (i >= 0)
 	{
 		if (s[i] == a)
 			return (&s[i]);

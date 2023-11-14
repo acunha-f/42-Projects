@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:28:26 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/31 19:28:26 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 18:51:10 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	lenghtwrds(char *s2, char chr1, int *v)
 	return (lenght);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	char	*temp;
@@ -59,7 +59,7 @@ char		**ft_split(char const *s, char c)
 	ll = 0;
 	temp = s;
 	l = countwrds(s, c);
-	str = malloc(sizeof(char*) * l);
+	str = malloc(sizeof(char *) * l);
 	while (i < l && temp)
 	{
 		str[i] = malloc(sizeof(char) * lenghtwrds(temp[ll], c, ll) + 1);

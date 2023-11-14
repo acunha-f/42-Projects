@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:25:16 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 21:35:02 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:14:58 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_strnstr(char *b, const char *l, size_t len)
 			j = 0;
 			while (b[i + j] == l[j] && l[j] != '\0')
 				j++;
+			if (i + j > len)
+				return (NULL);
 			if (l[j] == '\0')
 				return (&b[i]);
 		}

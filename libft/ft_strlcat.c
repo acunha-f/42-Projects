@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:09:22 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 21:12:34 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/14 19:40:57 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	while (dst[i])
 		i++;
 	d = i;
-	while (j < size - d - 1 && src[j])
+	while (j < (size - d - 1) && src[j])
 	{
 		dst[i] = src[j];
 		i++;

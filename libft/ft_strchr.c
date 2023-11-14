@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:14:05 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 21:33:21 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:06:17 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strchr(char *s, int c)
 			return (&s[i]);
 		i++;
 	}
+	if (s[i] == '\0' && a == '\0')
+		return (&s[i]);
 	return (NULL);
 }
 /*
