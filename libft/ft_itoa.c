@@ -48,7 +48,6 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 		i++;
 	}
-	str[lenght] = '\0';
 	while (lenght > i)
 	{
 		lenght--;

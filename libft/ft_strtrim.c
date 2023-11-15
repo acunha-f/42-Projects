@@ -55,5 +55,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	printf("%s\n", ft_strtrim("aaaactualwordsaaa", "aaa"));
+	char	*p;
+
+	p = ft_strtrim("aaaactualwordsaaa", "aaa");
+	printf("%s\n", p);
+	free(p);
 }

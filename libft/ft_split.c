@@ -12,20 +12,20 @@
 
 #include <libft.h>
 
-static int	countwrds(char *s1, char chr)
+static int	countwrds(char *s, char sep)
 {
 	int	j;
 	int	count;
 
 	j = 0;
 	count = 0;
-	if (s1 == NULL)
+	if (s == NULL)
 		return (0);
-	while (s1[j])
+	while (s[j])
 	{
-		while (s1[j] == chr)
+		while (s[j] == sep)
 			j++;
-		if (s1[j - 1] == chr && s1[j] != '\0')
+		if (s[j - 1] == sep && s[j] != '\0')
 			count++;
 		j++;
 	}
