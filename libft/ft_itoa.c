@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:58:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/31 17:58:08 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/16 20:45:45 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	find_lenght(int nbr)
+static int	ft_find_lenght(long int nbr)
 {
 	int	l;
 
 	l = 0;
-	if (nbr < 0)
+	if (nbr <= 0)
 	{
 		nbr *= -1;
 		l++;
@@ -30,24 +30,35 @@ static int	find_lenght(int nbr)
 	return (l);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_intmin(char *s)
 {
+	char	*min;
 	int		i;
-	char	*str;
-	int		res;
-	int		lenght;
 
-	lenght = find_lenght(n);
 	i = 0;
-	str = malloc(sizeof(char) * lenght + 1);
-	if (str == NULL)
-		return (NULL);
+	min = "-2147483648";
+	while (min[i])
+	{
+		s[i] = min[i];
+		i++;
+	}
+	s[i] = '\0';
+	return (s);
+}
+
+char	*ft_aux(long int n, char *str, int lenght)
+{
+	int	i;
+	int	res;
+
+	i = 0;
 	if (n < 0)
 	{
 		n *= -1;
 		str[0] = '-';
 		i++;
 	}
+	str[lenght] = '\0';
 	while (lenght > i)
 	{
 		lenght--;
@@ -55,6 +66,26 @@ char	*ft_itoa(int n)
 		str[lenght] = res;
 		n /= 10;
 	}
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	int		i;
+	char	*str;
+	int		lenght;
+
+	lenght = ft_find_lenght(n);
+	i = 0;
+	str = malloc(sizeof(char) * lenght + 1);
+	if (str == NULL)
+		return (NULL);
+	if (n == -2147483648)
+	{
+		ft_intmin(str);
+		return (str);
+	}
+	ft_aux(n, str, lenght);
 	return (str);
 }
 /*

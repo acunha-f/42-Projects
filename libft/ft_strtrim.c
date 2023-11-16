@@ -6,25 +6,24 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:00:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/14 18:41:11 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/16 21:22:21 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_customcpy(char *trimmed1, char const *str, int start1, int end1)
+static int	ft_ttrim(char const s, const char * set)
 {
 	int	i;
 
 	i = 0;
-	while (start1 < end1)
+	while (set[i])
 	{
-		trimmed1[i] = str[start1];
+		if (set[i] == s)
+			return (1);
 		i++;
-		start1++;
 	}
-	trimmed1[i] = '\0';
-	return (trimmed1);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -33,26 +32,27 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	int		start;
 	int		end;
-	int		size_of_set;
 
 	i = 0;
 	start = 0;
-	size_of_set = ft_strlen(set) - 1;
-	while (s1 && s1[start] == set[start])
+	end = ft_strlen(s1);
+	while (ft_ttrim((char)s1[start], set))
 		start++;
-	end = ft_strlen(s1) - 1;
-	while (s1[end] == set[size_of_set] && end > start)
-	{
+	while (ft_ttrim((char)s1[end], set))
 		end--;
-		size_of_set--;
-	}
 	trimmed = malloc(sizeof(char) * (end - start + 1));
 	if (trimmed == NULL)
 		return (NULL);
-	ft_customcpy(trimmed, s1, start, end);
+	while (start < end)
+	{
+		trimmed[i] = s1[start];
+		i++;
+		start++;
+	}
+	trimmed[i] = '\0';
 	return (trimmed);
 }
-
+/*
 int	main(void)
 {
 	char	*p;
@@ -60,4 +60,4 @@ int	main(void)
 	p = ft_strtrim("aaaactualwordsaaa", "aaa");
 	printf("%s\n", p);
 	free(p);
-}
+} */

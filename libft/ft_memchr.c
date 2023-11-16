@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:19:11 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/23 21:34:19 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:19:39 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	str = (unsigned char *)s;
 	a = (unsigned char)c;
 	i = 0;
-	while (str[i] && i < n)
+	if (n == 0)
+		return (NULL);
+	while (i < n - 1)
 	{
 		if (str[i] == a)
 			return (&str[i]);
