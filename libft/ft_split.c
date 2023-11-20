@@ -6,13 +6,13 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:28:26 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/14 18:51:10 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/20 22:24:51 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-static int	countwrds(char *s, char sep)
+static int	ft_countwrds(const char *s, char sep)
 {
 	int	j;
 	int	count;
@@ -25,61 +25,87 @@ static int	countwrds(char *s, char sep)
 	{
 		while (s[j] == sep)
 			j++;
-		if (s[j - 1] == sep && s[j] != '\0')
+		if ((s[j - 1] == sep && s[j] != '\0') || j == 0)
 			count++;
 		j++;
 	}
 	return (count);
 }
 
-static int	lenghtwrds(char *s2, char chr1, int *v)
+static int	ft_lenghtwrds(char *s2, char chr, char **fstr, int p)
 {
-	int	lenght;
+	int		j;
 
-	lenght = 0;
-	while (s2[v] == chr1)
-		*v++;
-	while (s2[v] && s2[v] != chr1)
+	j = 0;
+	while (s2[j] && s2[j] != chr)
+		j++;
+	fstr[p] = malloc(sizeof(char) * j);
+	if (!fstr[p])
 	{
-		*v++;
-		lenght++;
+		while (p > 0)
+		{
+			free(fstr[p]);
+			p--;
+		}
+		return (-1);
 	}
-	return (lenght);
+	return (j);
+}
+
+static char **ft_actualsplit(char *s, char chr, char **fstr)
+{
+	int		i;
+	int		p;
+	int		j;
+	int		k;
+	int		res;
+
+	i = 0;
+	j = 0;
+	p = 0;
+	k = 0;
+	while (s[i])
+	{
+		while (s[i] == chr && s[i])
+			i++;
+		j = i;
+		res = ft_lenghtwrds(s + i, chr, fstr, p);
+		if (res < 0)
+			return (fstr);
+		i += res;
+		p++;
+		while (j < i)
+			fstr[p][k++] = s[j++];
+		fstr[p][k] = '\0';
+	}
+	return (fstr);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	char	*temp;
-	int		l;
-	int		ll;
 	int		i;
+	int		size1;
 
 	i = 0;
-	ll = 0;
-	temp = s;
-	l = countwrds(s, c);
-	str = malloc(sizeof(char *) * l);
-	while (i < l && temp)
-	{
-		str[i] = malloc(sizeof(char) * lenghtwrds(temp[ll], c, ll) + 1);
-		ll++;
-		i++;
-	}
-	i = 0;
-	if (str == NULL)
+	size1 = ft_countwrds(s, c);
+	if (!s)
 		return (NULL);
-	while (s[i])
+	str = malloc(size1 * sizeof(char) + 1);
+	if (!str)
+		return(NULL);
+	if (&ft_actualsplit == NULL)
 	{
-		str
+		free(str);
+		return (NULL);
 	}
 	return (str);
 }
-
+/*
 int	main(void)
 {
 	char	**bo;
 
 	bo = ft_split("   abel miguel rafael ", ' ');
 	free(bo);
-}
+} */

@@ -6,13 +6,13 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:00:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/16 21:22:21 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/11/20 19:36:19 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_ttrim(char const s, const char * set)
+static int	ft_checktrim(char const s, const char *set)
 {
 	int	i;
 
@@ -26,30 +26,56 @@ static int	ft_ttrim(char const s, const char * set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+static char	*ft_nullmalloc(int i)
+{
+	char	*trimmed;
+
+	trimmed = malloc(sizeof(char) * 1);
+	if (trimmed == NULL)
+		return (NULL);
+	trimmed[i] = '\0';
+	return (trimmed);
+}
+
+static char	*ft_actualtrim(char const *s1, char const *set, int start, int end)
 {
 	char	*trimmed;
 	int		i;
-	int		start;
-	int		end;
 
 	i = 0;
-	start = 0;
-	end = ft_strlen(s1);
-	while (ft_ttrim((char)s1[start], set))
+	while (ft_checktrim((char)s1[start], set))
 		start++;
-	while (ft_ttrim((char)s1[end], set))
+	if (s1[start] == '\0')
+	{
+		trimmed = ft_nullmalloc(i);
+		return (trimmed);
+	}
+	while (ft_checktrim((char)s1[end], set))
 		end--;
-	trimmed = malloc(sizeof(char) * (end - start + 1));
+	trimmed = malloc(sizeof(char) * (end - start + 2));
 	if (trimmed == NULL)
 		return (NULL);
-	while (start < end)
+	while (start <= end)
 	{
 		trimmed[i] = s1[start];
 		i++;
 		start++;
 	}
 	trimmed[i] = '\0';
+	return (trimmed);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*trimmed;
+	int		start;
+	int		end;
+
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	if (!s1 || !set)
+		return (NULL);
+	trimmed = ft_actualtrim(s1, set, start, end);
 	return (trimmed);
 }
 /*
