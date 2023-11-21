@@ -18,7 +18,7 @@ SRC			= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			ft_calloc.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_memchr.c \
 			ft_memcmp.c ft_strnstr.c ft_strdup.c ft_putstr_fd.c ft_putchar_fd.c \
 			ft_strjoin.c ft_substr.c ft_putendl_fd.c ft_putnbr_fd.c ft_strtrim.c \
-			ft_itoa.c ft_split.c
+			ft_itoa.c ft_split.c ft_striteri.c ft_strmapi.c
 OBJ			= $(SRC:.c=.o)
 RM			= rm -f
 NAME		= libft.a

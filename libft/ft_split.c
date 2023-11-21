@@ -63,21 +63,25 @@ static char **ft_actualsplit(char *s, char chr, char **fstr)
 	i = 0;
 	j = 0;
 	p = 0;
-	k = 0;
 	while (s[i])
 	{
 		while (s[i] == chr && s[i])
 			i++;
+		if (s[i] == '\0')
+			break;
 		j = i;
 		res = ft_lenghtwrds(s + i, chr, fstr, p);
 		if (res < 0)
 			return (fstr);
 		i += res;
 		p++;
+		k = 0;
 		while (j < i)
 			fstr[p][k++] = s[j++];
 		fstr[p][k] = '\0';
 	}
+	p++;
+	fstr[p] = '\0';
 	return (fstr);
 }
 
@@ -88,13 +92,12 @@ char	**ft_split(char const *s, char c)
 	int		size1;
 
 	i = 0;
-	size1 = ft_countwrds(s, c);
 	if (!s)
 		return (NULL);
-	str = malloc(size1 * sizeof(char) + 1);
+	str = malloc((ft_countwrds(s, c) * sizeof(char)) + 1);
 	if (!str)
 		return(NULL);
-	if (&ft_actualsplit == NULL)
+	if (ft_actualsplit(s, c, str) == NULL)
 	{
 		free(str);
 		return (NULL);
