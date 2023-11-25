@@ -20,6 +20,11 @@ SRC			= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			ft_strjoin.c ft_substr.c ft_putendl_fd.c ft_putnbr_fd.c ft_strtrim.c \
 			ft_itoa.c ft_split.c ft_striteri.c ft_strmapi.c
 OBJ			= $(SRC:.c=.o)
+
+BONUS		= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
+BONUS_OBJ	= $(BONUS:.c=.o)
+
 RM			= rm -f
 NAME		= libft.a
 
@@ -29,14 +34,17 @@ NAME		= libft.a
 $(NAME):	$(OBJ)
 				ar rcs $(NAME) $(OBJ)
 
+bonus:		$(OBJ) $(BONUS_OBJ)
+				ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+
 all:		$(NAME)
 
 clean:
-				$(RM) $(OBJ)
+				$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean:		clean
 				$(RM) $(NAME)
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re bonus
