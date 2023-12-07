@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:28:26 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/20 22:24:51 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:09:32 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ static int	ft_countwrds(const char *s, char sep)
 
 static int	ft_lenghtwrds(char *s2, char chr, char **fstr, int p)
 {
-	int		j;
+	int	j;
+	int	i;
 
 	j = 0;
+	i = 0;
 	while (s2[j] && s2[j] != chr)
 		j++;
-	fstr[p] = malloc(sizeof(char) * j);
+	fstr[p] = malloc(sizeof(char) * j + 1);
 	if (!fstr[p])
 	{
 		while (p > 0)
@@ -49,39 +51,40 @@ static int	ft_lenghtwrds(char *s2, char chr, char **fstr, int p)
 		}
 		return (-1);
 	}
+	while (i < j)
+	{
+		fstr[p][i] = s2[i];
+		i++;
+	}
+	fstr[p][i] = '\0';
 	return (j);
 }
 
-static char **ft_actualsplit(char *s, char chr, char **fstr)
+static char	**ft_actualsplit(char *s, char chr, char **fstr)
 {
 	int		i;
 	int		p;
 	int		j;
-	int		k;
-	int		res;
 
 	i = 0;
-	j = 0;
 	p = 0;
 	while (s[i])
 	{
 		while (s[i] == chr && s[i])
 			i++;
 		if (s[i] == '\0')
-			break;
-		j = i;
-		res = ft_lenghtwrds(s + i, chr, fstr, p);
-		if (res < 0)
+		{
+			if (p == 0)
+				j = ft_lenghtwrds(s, chr, fstr, p);
+			break ;
+		}
+		j = ft_lenghtwrds(s + i, chr, fstr, p);
+		if (j < 0)
 			return (fstr);
-		i += res;
+		i += j;
 		p++;
-		k = 0;
-		while (j < i)
-			fstr[p][k++] = s[j++];
-		fstr[p][k] = '\0';
 	}
-	p++;
-	fstr[p] = '\0';
+	fstr[p] = NULL;
 	return (fstr);
 }
 
@@ -89,15 +92,14 @@ char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	int		i;
-	int		size1;
 
 	i = 0;
 	if (!s)
 		return (NULL);
 	str = malloc((ft_countwrds(s, c) * sizeof(char)) + 1);
 	if (!str)
-		return(NULL);
-	if (ft_actualsplit(s, c, str) == NULL)
+		return (NULL);
+	if (ft_actualsplit((char *)s, c, str) == NULL)
 	{
 		free(str);
 		return (NULL);

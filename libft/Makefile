@@ -6,7 +6,7 @@
 #    By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 17:21:55 by acunha-f          #+#    #+#              #
-#    Updated: 2023/11/20 22:10:04 by acunha-f         ###   ########.fr        #
+#    Updated: 2023/12/07 15:05:04 by acunha-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC			= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 OBJ			= $(SRC:.c=.o)
 
 BONUS		= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 BONUS_OBJ	= $(BONUS:.c=.o)
 
 RM			= rm -f
