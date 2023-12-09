@@ -49,6 +49,7 @@ static int	ft_lenghtwrds(char *s2, char chr, char **fstr, int p)
 			free(fstr[p]);
 			p--;
 		}
+		free(fstr);
 		return (-1);
 	}
 	while (i < j)
@@ -80,7 +81,7 @@ static char	**ft_actualsplit(char *s, char chr, char **fstr)
 		}
 		j = ft_lenghtwrds(s + i, chr, fstr, p);
 		if (j < 0)
-			return (fstr);
+			return (NULL);
 		i += j;
 		p++;
 	}
@@ -99,12 +100,7 @@ char	**ft_split(char const *s, char c)
 	str = malloc((ft_countwrds(s, c) * sizeof(char)) + 1);
 	if (!str)
 		return (NULL);
-	if (ft_actualsplit((char *)s, c, str) == NULL)
-	{
-		free(str);
-		return (NULL);
-	}
-	return (str);
+	return (ft_actualsplit((char *)s, c, str));
 }
 /*
 int	main(void)

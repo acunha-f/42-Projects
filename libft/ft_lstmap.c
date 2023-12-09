@@ -18,18 +18,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*temp;
 
 	sub = (t_list *)malloc(sizeof(t_list));
-	temp = lst;
-	while (temp != NULL)
+	while (lst != NULL)
 	{
-		sub = f(temp->content);
-		if (!sub)
+		temp = f(lst->content);
+		if (!temp)
 		{
 			ft_lstclear(&sub, del);
 			return (NULL);
 		}
-		sub = sub->next;
-		temp = temp->next;
+		ft_lstadd_back(&sub, temp);
+		lst = lst->next;
 	}
-	sub = NULL;
 	return (sub);
 }
