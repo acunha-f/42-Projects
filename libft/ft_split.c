@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:28:26 by marvin            #+#    #+#             */
-/*   Updated: 2023/12/07 12:09:32 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/12/10 18:51:37 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	ft_lenghtwrds(char *s2, char chr, char **fstr, int p)
 	fstr[p] = malloc(sizeof(char) * j + 1);
 	if (!fstr[p])
 	{
-		while (p > 0)
+		while (p >= 0)
 		{
 			free(fstr[p]);
 			p--;
@@ -74,11 +74,7 @@ static char	**ft_actualsplit(char *s, char chr, char **fstr)
 		while (s[i] == chr && s[i])
 			i++;
 		if (s[i] == '\0')
-		{
-			if (p == 0)
-				j = ft_lenghtwrds(s, chr, fstr, p);
 			break ;
-		}
 		j = ft_lenghtwrds(s + i, chr, fstr, p);
 		if (j < 0)
 			return (NULL);
@@ -97,7 +93,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	str = malloc((ft_countwrds(s, c) * sizeof(char)) + 1);
+	str = (char **)malloc((ft_countwrds(s, c) + 1) * sizeof(char *));
 	if (!str)
 		return (NULL);
 	return (ft_actualsplit((char *)s, c, str));

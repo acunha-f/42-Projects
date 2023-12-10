@@ -6,15 +6,15 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:02:51 by acunha-f          #+#    #+#             */
-/*   Updated: 2023/10/11 19:48:06 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/12/10 18:55:20 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, int n)
+void	ft_bzero(void *str, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*s;
 
 	i = 0;

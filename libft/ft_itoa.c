@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:58:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/16 20:45:45 by acunha-f         ###   ########.fr       */
+/*   Updated: 2023/12/10 19:04:32 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*ft_intmin(char *s)
 	return (s);
 }
 
-char	*ft_aux(long int n, char *str, int lenght)
+static char	*ft_aux(long int n, char *str, int lenght)
 {
 	int	i;
 	int	res;
