@@ -12,7 +12,7 @@
 
 
 CC 			= cc
-CFLAGS		= -Wall -Wextra -Werror
+#CFLAGS		= -Wall -Wextra -Werror
 SRC			= ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c \
 			ft_strchr.c ft_vprints.c ft_unumber.c ft_printp.c \
 			ft_puthexn.c maintest.c
@@ -24,7 +24,7 @@ NAME		= libftprintf.a
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
 clean:
 	$(RM) $(OBJ)

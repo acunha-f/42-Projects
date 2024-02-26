@@ -26,9 +26,11 @@ int	ft_vprints(const char *format, int i, va_list list)
 	if (format[i] == 'p')
 		return (ft_printp(va_arg(list, void *)));
 	if (format[i] == 'x')
-		return (ft_puthexn(va_arg(list, int), "0123456789abcdef"));
+		return (ft_puthexn(va_arg(list, unsigned long int),
+				"0123456789abcdef"));
 	if (format[i] == 'X')
-		return (ft_puthexn(va_arg(list, int), "0123456789ABCDEF"));
+		return (ft_puthexn(va_arg(list, unsigned long int),
+				"0123456789ABCDEF"));
 	if (format[i] == '%')
 	{
 		write(1, "%", 1);
