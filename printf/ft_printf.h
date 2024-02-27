@@ -27,5 +27,5 @@ int	ft_putstr(char *s);
 int	ft_putnbr(int n);
 int	ft_unumber(unsigned int n);
 int	ft_printp(void *p);
-int	ft_puthexn(unsigned long int n, char *base);
+int	ft_puthexn(unsigned long long int n, char *base);
 #endif

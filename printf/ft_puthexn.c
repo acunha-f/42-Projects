@@ -6,13 +6,13 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 17:23:08 by acunha-f          #+#    #+#             */
-/*   Updated: 2024/02/26 19:22:46 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:09:25 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthexn(unsigned long int n, char *base)
+int	ft_puthexn(unsigned long long int n, char *base)
 {
 	int	res;
 	int	count;
