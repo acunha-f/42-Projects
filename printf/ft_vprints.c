@@ -24,12 +24,12 @@ int	ft_vprints(const char *format, int i, va_list list)
 	if (format[i] == 'u')
 		return (ft_unumber(va_arg(list, unsigned int)));
 	if (format[i] == 'p')
-		return (ft_printp(va_arg(list, void *)));
+		return (ft_printp(va_arg(list, unsigned long long int)));
 	if (format[i] == 'x')
-		return (ft_puthexn(va_arg(list, unsigned long long int),
+		return (ft_puthexn(va_arg(list, unsigned int),
 				"0123456789abcdef"));
 	if (format[i] == 'X')
-		return (ft_puthexn(va_arg(list, unsigned long long int),
+		return (ft_puthexn(va_arg(list, unsigned int),
 				"0123456789ABCDEF"));
 	if (format[i] == '%')
 	{

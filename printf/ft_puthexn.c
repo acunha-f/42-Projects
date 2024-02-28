@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 17:23:08 by acunha-f          #+#    #+#             */
-/*   Updated: 2024/02/27 18:09:25 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:11:56 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 int	ft_puthexn(unsigned long long int n, char *base)
 {
-	int	res;
-	int	count;
+	int	length;
 
-	count = 0;
-	res = n % 16;
+	length = 0;
 	if (n >= 16)
-		count += ft_puthexn(n / 16, base);
-	write(1, &base[res], 1);
-	count++;
-	return (count);
+	{
+		length += ft_puthexn((n / 16), base);
+		length += ft_puthexn((n % 16), base);
+	}
+	else
+	{
+		write(1, &base[n], 1);
+		length++;
+	}
+	return (length);
 }

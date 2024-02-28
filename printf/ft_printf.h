@@ -26,6 +26,6 @@ int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putnbr(int n);
 int	ft_unumber(unsigned int n);
-int	ft_printp(void *p);
+int	ft_printp(unsigned long long int p);
 int	ft_puthexn(unsigned long long int n, char *base);
 #endif
