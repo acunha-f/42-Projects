@@ -26,6 +26,7 @@
 
 char	*get_next_line(int fd);
 void	ft_bzero(void *str, size_t n);
-int	ft_strchr(char *s, int c);
+int		ft_strchr(char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_strlen(const char *str);
 #endif
