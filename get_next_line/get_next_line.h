@@ -20,13 +20,13 @@
 # include <stdarg.h>
 # include <fcntl.h>
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 20
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 20
+# endif
 
 char	*get_next_line(int fd);
 void	ft_bzero(void *str, size_t n);
 int		ft_strchr(char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char const *s2);
 int		ft_strlen(const char *str);
 #endif
