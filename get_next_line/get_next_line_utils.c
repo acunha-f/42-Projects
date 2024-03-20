@@ -3,25 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:29:31 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/04 19:29:31 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/20 22:29:44 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_bzero(void *str, size_t n)
+void	ft_bzero(char *str, size_t n)
 {
 	size_t			i;
-	unsigned char	*s;
 
 	i = 0;
-	s = (unsigned char *)str;
 	while (i < n)
 	{
-		s[i] = '\0';
+		str[i] = '\0';
 		i++;
 	}
 }
@@ -47,6 +45,8 @@ int	ft_strlen(const char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != '\0' && str[i] != '\n')
 		i++;
 	if (str[i] == '\n')
@@ -67,7 +67,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	str = malloc(sizeof(char) * size);
 	if (str == NULL)
 		return (free(s1), NULL);
-	while (s1[i])
+	while (ft_strlen(s1) != 0 && s1[i])
 	{
 		str[i] = s1[i];
 		i++;
@@ -83,26 +83,26 @@ char	*ft_strjoin(char *s1, char const *s2)
 	return (str);
 }
 
-void	ft_reset(char *b)
+int	ft_reset(char *b)
 {
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-	if (!ft_strchr(b, '\n'))
-		return (ft_bzero(b));
 	while (b[i])
 	{
 		if (b[i] == '\n')
 		{
 			while (b[i])
 			{
-
+				b[i++] = '\0';
+				b[j++] = b[i];
 			}
-
+			return (0);
 		}
+		b[i] = '\0';
 		i++;
 	}
-	return (b);
+	return (1);
 }

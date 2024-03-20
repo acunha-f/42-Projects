@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:28:56 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/04 19:28:56 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/20 22:32:12 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,30 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	line = NULL;
-	while (b > 0 && !ft_strchr(buffer, '\n'))
+	while (b > 0 && (buffer[0] || read(fd, buffer, BUFFER_SIZE) > 0))
 	{
-		b = read(fd, buffer, BUFFER_SIZE);
-		buffer[b++] = '\0';
 		line = ft_strjoin(line, buffer);
-		ft_bzero(buffer, BUFFER_SIZE);
+		if (!line)
+			return (NULL);
+		b = ft_reset(buffer);
 	}
-	if (line == NULL && buffer[0] != '\0')
-		line = ft_strjoin(line, buffer);
-	ft_bzero(buffer, BUFFER_SIZE);
 	return (line);
 }
-/*
-int	main(void)
-{
-	int		fd;
-	int		i;
-	char	*line;
 
-	i = 0;
-	fd = open("example.txt", O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
-	{
-		printf("line[%i]: %s\n", i++, line);
-		line = get_next_line(fd);
-	}
-}
-*/
+// int	main(void)
+// {
+// 	int		fd;
+// 	int		i;
+// 	char	*line;
+
+// 	i = 1;
+// 	fd = open("example.txt", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	while (line)
+// 	{
+// 		printf("line[%i]: %s", i++, line);
+// 		line = get_next_line(fd);
+// 	}
+// 	printf("line[%i]: %s", i++, line);
+// 	close(fd);
+// }
