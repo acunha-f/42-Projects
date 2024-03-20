@@ -49,6 +49,8 @@ int	ft_strlen(const char *str)
 	i = 0;
 	while (str[i] != '\0' && str[i] != '\n')
 		i++;
+	if (str[i] == '\n')
+		i++;
 	return (i);
 }
 
@@ -79,4 +81,28 @@ char	*ft_strjoin(char *s1, char const *s2)
 	str[i + j] = '\0';
 	free(s1);
 	return (str);
+}
+
+void	ft_reset(char *b)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (!ft_strchr(b, '\n'))
+		return (ft_bzero(b));
+	while (b[i])
+	{
+		if (b[i] == '\n')
+		{
+			while (b[i])
+			{
+
+			}
+
+		}
+		i++;
+	}
+	return (b);
 }
