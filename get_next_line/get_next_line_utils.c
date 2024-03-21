@@ -14,7 +14,7 @@
 
 void	ft_bzero(char *str, size_t n)
 {
-	size_t			i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
@@ -22,22 +22,6 @@ void	ft_bzero(char *str, size_t n)
 		str[i] = '\0';
 		i++;
 	}
-}
-
-int	ft_strchr(char *s, int c)
-{
-	int		i;
-	char	a;
-
-	a = (char)c;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == a)
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 int	ft_strlen(const char *str)
@@ -85,8 +69,8 @@ char	*ft_strjoin(char *s1, char const *s2)
 
 int	ft_reset(char *b)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
