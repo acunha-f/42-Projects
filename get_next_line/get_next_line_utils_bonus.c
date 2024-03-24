@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 19:29:31 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/20 22:29:44 by acunha-f         ###   ########.fr       */
+/*   Created: 2024/03/23 16:58:23 by marvin            #+#    #+#             */
+/*   Updated: 2024/03/23 16:58:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	ft_bzero(char *str, size_t n)
 {
