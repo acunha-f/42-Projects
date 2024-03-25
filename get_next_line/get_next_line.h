@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:30:54 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/20 22:30:22 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/03/25 18:46:19 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 20
+#  define BUFFER_SIZE 100
 # endif
 
 char	*get_next_line(int fd);

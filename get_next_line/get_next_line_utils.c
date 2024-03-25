@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 19:29:31 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/20 22:29:44 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:03:40 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	str = malloc(sizeof(char) * size);
 	if (str == NULL)
 		return (free(s1), NULL);
-	while (ft_strlen(s1) != 0 && s1[i])
+	while (s1 && s1[i])
 	{
 		str[i] = s1[i];
 		i++;
@@ -82,13 +82,12 @@ int	ft_reset(char *b)
 		{
 			while (b[i])
 			{
-				b[i++] = '\0';
+				b[i++] = 0;
 				b[j++] = b[i];
 			}
 			return (0);
 		}
-		b[i] = '\0';
-		i++;
+		b[i++] = 0;
 	}
 	return (1);
 }

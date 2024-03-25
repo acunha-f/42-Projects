@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:59:29 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/23 16:59:29 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/25 16:53:37 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 50
-# endif
-
-# ifndef FDS
-#  define FDS 50
 # endif
 
 char	*get_next_line(int fd);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:58:23 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/23 16:58:23 by marvin           ###   ########.fr       */
+/*   Updated: 2024/03/25 19:14:22 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void	ft_bzero(char *str, size_t n)
 	if (!str)
 		return ;
 	while (i < n)
-	{
-		str[i] = '\0';
-		i++;
-	}
+		str[i++] = '\0';
 }
 
 int	ft_strlen(const char *str)
@@ -53,7 +50,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	str = malloc(sizeof(char) * size);
 	if (str == NULL)
 		return (free(s1), NULL);
-	while (ft_strlen(s1) != 0 && s1[i])
+	while (s1 && s1[i])
 	{
 		str[i] = s1[i];
 		i++;
@@ -82,13 +79,12 @@ int	ft_reset(char *b)
 		{
 			while (b[i])
 			{
-				b[i++] = '\0';
+				b[i++] = 0;
 				b[j++] = b[i];
 			}
 			return (0);
 		}
-		b[i] = '\0';
-		i++;
+		b[i++] = 0;
 	}
 	return (1);
 }
