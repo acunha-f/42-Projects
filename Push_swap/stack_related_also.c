@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_related_also.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 03:53:41 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/17 03:53:41 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/10 18:21:23 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static int	ft_atoll(const char *str)
 	return (sum * sign);
 }
 
-int	is_stack_storted(t_stack **stack)
+int	is_stack_sorted(t_stack **stack)
 {
-	t_stack	temp;
+	t_stack	*temp;
 
 	temp = *stack;
 	while (temp)

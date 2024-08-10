@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 02:30:47 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/14 02:30:47 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/10 18:25:39 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 static void	push(t_stack **dest, t_stack **src)
 {
 	t_stack	*node;
+
 	if (!(*src))
 		return ;
 	node = *src;
 	*src = (*src)->next;
 	if (*src)
-		(*src)->prev = NULL
+		(*src)->prev = NULL;
 	if (!(*dest))
 	{
 		*dest = node;

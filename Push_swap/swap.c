@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 02:49:39 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/14 02:49:39 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/10 18:40:22 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void	swap(t_stack **stack)
 	if (!head->next->next)
 		head->next = NULL;
 	else
-		{
-			after->next->prev = head;
-			head->next = after->next;
-		}
-		head->prev = after;
-		after->next = head;
-		after->prev = NULL;
-		*stack = after;
+	{
+		after->next->prev = head;
+		head->next = after->next;
+	}
+	head->prev = after;
+	after->next = head;
+	after->prev = NULL;
+	*stack = after;
 }
 
 void	sa(t_stack **a)
@@ -48,7 +48,7 @@ void	sb(t_stack **b)
 
 void	ss(t_stack **a, t_stack **b)
 {
-	swap(a;)
+	swap(a);
 	swap(b);
 	write(1, "ss\n", 3);
 }

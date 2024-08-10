@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 03:12:53 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/11 03:12:53 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/10 18:27:39 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_stack
 	int				position;
 	int				cost;
 	int				median;
-	struct	s_stack	*target;
+	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }							t_stack;
@@ -64,7 +64,7 @@ int		stack_size(t_stack **stack);
 t_stack	*new_node(t_stack **a, int content);
 void	stack_clear(t_stack **stack);
 
-int		is_stack_storted(t_stack **stack);
+int		is_stack_sorted(t_stack **stack);
 void	create_stack(t_stack **stack, char **argv);
 t_stack	*find_smallest(t_stack **stack);
 t_stack	*find_biggest(t_stack **stack);

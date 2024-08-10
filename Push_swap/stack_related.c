@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_related.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:27:30 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/12 19:27:30 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/10 18:28:54 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	stack_clear(t_stack **stack)
 
 	if (!(*stack))
 		return (NULL);
-		head = *stack;
+	head = *stack;
 	while (head)
 	{
 		temp = head->next;

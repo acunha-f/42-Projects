@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 02:28:20 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/17 02:28:20 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/10 18:26:50 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ void	push_swap(t_stack **a, t_stack **b, int len)
 	{
 		set_all_targets(a, b);
 		move_nodes(a, b, find_cheapest(a, b));
-		pa(a);
+		pa(a, b);
 	}
 	finalize(a, find_smallest(a));
 }
-

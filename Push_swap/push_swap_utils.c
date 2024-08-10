@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 03:54:19 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/17 03:54:19 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/10 18:28:18 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void	set_median_and_position(t_stack *node)
 
 t_stack	*find_cheapest(t_stack **a, t_stack **b)
 {
-	t_stack *cheapest;
-	t_stack *tb;
+	t_stack	*cheapest;
+	t_stack	*tb;
 	int		smallest;
 
 	tb = *b;
