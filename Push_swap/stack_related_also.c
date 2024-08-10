@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 03:53:41 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 18:21:23 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/10 19:24:20 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ void	create_stack(t_stack **stack, char **argv)
 		return ;
 	while (*argv)
 	{
-		if (e_syntax(**argv))
-			free_e(stack, argv);
+		if (e_syntax(*argv))
+			e_free(stack, argv);
 		n = ft_atoll(*argv);
 		if (n > INT_MAX || n < INT_MIN)
-			free_e(stack, argv);
-		if (n_repeat(stack, (int)n))
-			free_e(stack, argv);
+			e_free(stack, argv);
+		if (n_repeat(*stack, (int)n))
+			e_free(stack, argv);
 		temp = new_node(stack, (int)n);
 		argv += 1;
 	}

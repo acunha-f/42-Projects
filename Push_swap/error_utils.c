@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 02:01:16 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 18:22:27 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/10 18:58:03 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	free_av(char **argv)
 
 void	e_free(t_stack	**stack, char **argv)
 {
-	clear_stack(stack);
+	stack_clear(stack);
 	free_av(argv);
 	write(2, "Error\n", 6);
 	exit(1);

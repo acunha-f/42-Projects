@@ -6,19 +6,19 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:27:30 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 18:28:54 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/10 19:07:43 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*last_node(t_stack *lst)
+t_stack	*last_node(t_stack *head)
 {
 	t_stack	*temp;
 
-	if (!lst)
+	if (!head)
 		return (NULL);
-	temp = lst;
+	temp = head;
 	while (temp->next != NULL)
 		temp = temp->next;
 	return (temp);
@@ -58,7 +58,7 @@ t_stack	*new_node(t_stack **a, int content)
 	}
 	else
 	{
-		new->prev = last_node(a);
+		new->prev = last_node(*a);
 		new->prev->next = new;
 	}
 	new->target = NULL;
@@ -71,7 +71,7 @@ void	stack_clear(t_stack **stack)
 	t_stack	*head;
 
 	if (!(*stack))
-		return (NULL);
+		return ;
 	head = *stack;
 	while (head)
 	{

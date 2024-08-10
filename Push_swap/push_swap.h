@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 03:12:53 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 18:27:39 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/10 19:06:05 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	push_swap(t_stack **a, t_stack **b, int len);
 
 void	set_all_targets(t_stack **a, t_stack **b);
 void	set_median_and_position(t_stack *node);
-t_stack	*find_cheapest(t_stack **a, t_stack **b);
+t_stack	*find_cheapest(t_stack **b);
 void	move_nodes(t_stack **a, t_stack **b, t_stack *n);
 
 void	pa(t_stack **a, t_stack **b);
@@ -59,7 +59,7 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 
-t_stack	*last_node(t_stack *lst);
+t_stack	*last_node(t_stack *head);
 int		stack_size(t_stack **stack);
 t_stack	*new_node(t_stack **a, int content);
 void	stack_clear(t_stack **stack);

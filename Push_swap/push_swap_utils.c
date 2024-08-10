@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 03:54:19 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 18:28:18 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/10 19:01:06 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	set_median_and_position(t_stack *node)
 {
 	t_stack	*up;
 	t_stack	*down;
-	int		*count;
+	int		count;
 
 	up = node;
 	down = node;
@@ -75,7 +75,7 @@ void	set_median_and_position(t_stack *node)
 	node->position = count;
 }
 
-t_stack	*find_cheapest(t_stack **a, t_stack **b)
+t_stack	*find_cheapest(t_stack **b)
 {
 	t_stack	*cheapest;
 	t_stack	*tb;

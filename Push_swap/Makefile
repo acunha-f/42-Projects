@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 05:05:40 by marvin            #+#    #+#              #
-#    Updated: 2024/06/18 05:05:40 by marvin           ###   ########.fr        #
+#    Updated: 2024/08/10 19:41:19 by acunha-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,8 @@ NAME		= push_swap
 
 all:		$(NAME)
 
-$(NAME):	$(ARCHIVE)
-
-$(ARCHIVE):	$(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME):	$(OBJ)
+	ar rcs $(ARCHIVE) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
