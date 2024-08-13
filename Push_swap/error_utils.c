@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 02:01:16 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 18:58:03 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/13 17:43:20 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ int	e_syntax(char *str)
 
 	i = 0;
 	if (!(str[i] == '-' || str[i] == '+')
-		|| !ft_isdigit(str[i]))
+		&& !ft_isdigit(str[i]))
 		return (1);
-	if ((str[i] == '-' || str[i] == '+')
-		&& !ft_isdigit(str[i + 1]))
-		return (1);
-	i++;
+	if ((str[i] == '-' || str[i] == '+'))
+	{
+		if (!ft_isdigit(str[i + 1]))
+			return (1);
+		i++;
+	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -57,22 +59,22 @@ void	free_av(char **argv)
 {
 	int	lenght;
 
-	lenght = -1;
+	lenght = 0;
 	while (argv[lenght])
-		lenght++;
-	while (lenght >= 0)
 	{
 		free(argv[lenght]);
-		lenght--;
+		lenght++;
 	}
 	free(argv);
 }
 
 void	e_free(t_stack	**stack, char **argv, int checker)
 {
+	if (argv)
+		checker++;
 	stack_clear(stack);
-	if (checker)
-		free_av(argv);
+	// if (checker)
+	// 	free_av(argv - 1);
 	write(2, "Error\n", 6);
 	exit(1);
 }

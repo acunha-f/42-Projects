@@ -6,7 +6,7 @@
 #    By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/18 05:05:40 by marvin            #+#    #+#              #
-#    Updated: 2024/08/10 19:41:19 by acunha-f         ###   ########.fr        #
+#    Updated: 2024/08/13 16:39:43 by acunha-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ clean:
 	$(RM) $(OBJ)
 
 fclean:	clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(ARCHIVE)
 
 re:			fclean all
 

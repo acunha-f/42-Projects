@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 03:53:41 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 19:24:20 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/13 17:43:09 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	create_stack(t_stack **stack, char **argv, int checker)
 		temp = new_node(stack, (int)n);
 		argv += 1;
 	}
-	if (checker)
+	if (checker && argv != NULL)
 		free_av(argv);
 }
 
