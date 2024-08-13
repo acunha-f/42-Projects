@@ -42,7 +42,7 @@ int	is_stack_sorted(t_stack **stack)
 	t_stack	*temp;
 
 	temp = *stack;
-	while (temp)
+	while (temp->next)
 	{
 		if (temp->content > temp->next->content)
 			return (0);
@@ -51,7 +51,7 @@ int	is_stack_sorted(t_stack **stack)
 	return (1);
 }
 
-void	create_stack(t_stack **stack, char **argv)
+void	create_stack(t_stack **stack, char **argv, int checker)
 {
 	long long	n;
 	t_stack		*temp;
@@ -61,16 +61,17 @@ void	create_stack(t_stack **stack, char **argv)
 	while (*argv)
 	{
 		if (e_syntax(*argv))
-			e_free(stack, argv);
+			e_free(stack, argv, checker);
 		n = ft_atoll(*argv);
 		if (n > INT_MAX || n < INT_MIN)
-			e_free(stack, argv);
+			e_free(stack, argv, checker);
 		if (n_repeat(*stack, (int)n))
-			e_free(stack, argv);
+			e_free(stack, argv, checker);
 		temp = new_node(stack, (int)n);
 		argv += 1;
 	}
-	free_av(argv);
+	if (checker)
+		free_av(argv);
 }
 
 t_stack	*find_smallest(t_stack **stack)

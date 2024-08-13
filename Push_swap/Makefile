@@ -23,7 +23,9 @@ NAME		= push_swap
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):	$(ARCHIVE)
+
+$(ARCHIVE):	$(OBJ)
 	ar rcs $(ARCHIVE) $(OBJ)
 
 clean:

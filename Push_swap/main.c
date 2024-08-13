@@ -16,14 +16,19 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		checker;
 
 	a = NULL;
 	b = NULL;
+	checker = 0;
 	if (argc < 2 || (argc == 2 && !argv[1][0]))
 		return (0);
 	else if (argc == 2)
+	{
 		argv = ft_split(argv[1], ' ');
-	create_stack(&a, argv + 1);
+		checker = 1;
+	}
+	create_stack(&a, argv + 1, checker);
 	if (!is_stack_sorted(&a))
 		push_swap(&a, &b, stack_size(&a));
 	stack_clear(&a);

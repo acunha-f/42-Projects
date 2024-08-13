@@ -68,10 +68,11 @@ void	free_av(char **argv)
 	free(argv);
 }
 
-void	e_free(t_stack	**stack, char **argv)
+void	e_free(t_stack	**stack, char **argv, int checker)
 {
 	stack_clear(stack);
-	free_av(argv);
+	if (checker)
+		free_av(argv);
 	write(2, "Error\n", 6);
 	exit(1);
 }

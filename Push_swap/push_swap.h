@@ -37,7 +37,7 @@ char	**ft_split(char const *s, char c);
 int		n_repeat(t_stack *stack, int n);
 int		e_syntax(char *str);
 void	free_av(char **argv);
-void	e_free(t_stack	**stack, char **argv);
+void	e_free(t_stack	**stack, char **argv, int checker);
 
 void	tiny_sort(t_stack **a, t_stack *big, int len);
 void	push_swap(t_stack **a, t_stack **b, int len);
@@ -65,7 +65,7 @@ t_stack	*new_node(t_stack **a, int content);
 void	stack_clear(t_stack **stack);
 
 int		is_stack_sorted(t_stack **stack);
-void	create_stack(t_stack **stack, char **argv);
+void	create_stack(t_stack **stack, char **argv, int checker);
 t_stack	*find_smallest(t_stack **stack);
 t_stack	*find_biggest(t_stack **stack);
 
