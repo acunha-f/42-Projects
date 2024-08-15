@@ -88,9 +88,7 @@ static char	**ft_actualsplit(char *s, char chr, char **fstr)
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	int		i;
 
-	i = 0;
 	if (!s)
 		return (NULL);
 	str = (char **)malloc((ft_countwrds(s, c) + 1) * sizeof(char *));

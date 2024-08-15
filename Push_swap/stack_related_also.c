@@ -54,7 +54,6 @@ int	is_stack_sorted(t_stack **stack)
 void	create_stack(t_stack **stack, char **argv, int checker)
 {
 	long long	n;
-	t_stack		*temp;
 
 	if (!stack)
 		return ;
@@ -67,7 +66,7 @@ void	create_stack(t_stack **stack, char **argv, int checker)
 			e_free(stack, argv, checker);
 		if (n_repeat(*stack, (int)n))
 			e_free(stack, argv, checker);
-		temp = new_node(stack, (int)n);
+		new_node(stack, (int)n);
 		argv += 1;
 	}
 	if (checker && argv != NULL)

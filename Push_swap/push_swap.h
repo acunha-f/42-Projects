@@ -61,7 +61,7 @@ void	rrr(t_stack **a, t_stack **b);
 
 t_stack	*last_node(t_stack *head);
 int		stack_size(t_stack **stack);
-t_stack	*new_node(t_stack **a, int content);
+void	new_node(t_stack **a, int content);
 void	stack_clear(t_stack **stack);
 
 int		is_stack_sorted(t_stack **stack);
