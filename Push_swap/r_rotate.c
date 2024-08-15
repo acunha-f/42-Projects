@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 05:05:12 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 19:03:38 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/15 19:40:34 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ static void	rrotate(t_stack **stack, t_stack *last)
 void	rra(t_stack **a)
 {
 	rrotate(a, last_node(*a));
-	write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
 {
 	rrotate(b, last_node(*b));
-	write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
 	rrotate(a, last_node(*a));
 	rrotate(b, last_node(*b));
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 03:58:06 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/13 16:42:59 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/15 19:34:28 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int argc, char **argv)
 		checker = 1;
 	}
 	create_stack(&a, argv + 1, checker);
+	if (stack_size(&a) <= 3)
+		tiny_sort(&a, find_biggest(&a), stack_size(&a));
 	if (!is_stack_sorted(&a))
 		push_swap(&a, &b, stack_size(&a));
 	stack_clear(&a);

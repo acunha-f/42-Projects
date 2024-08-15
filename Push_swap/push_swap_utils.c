@@ -6,7 +6,7 @@
 /*   By: acunha-f <acunha-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 03:54:19 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/10 19:01:06 by acunha-f         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:02:41 by acunha-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	set_all_targets(t_stack **a, t_stack **b)
 	while (tb)
 	{
 		set_target(a, tb);
+		set_median_and_position(tb);
+		set_median_and_position(tb->target);
 		tb = tb->next;
 	}
 }
@@ -98,27 +100,29 @@ t_stack	*find_cheapest(t_stack **b)
 
 void	move_nodes(t_stack **a, t_stack **b, t_stack *n)
 {
-	while (n != *a && n != *b)
+	while (n->target != *a ||n != *b)
 	{
 		if ((!n->median && !n->target->median) && (n != *a || n != *b))
 			rr(a, b);
 		if (n->median && n->target->median)
 			rrr(a, b);
-		if (n != *a || n != *b)
+		if (n->target != *a || n != *b)
 		{
-			if (n != *a)
-			{
-				if (n->median)
-					rrb(b);
-				else
-					rb(b);
-			}
-			if (n != *b)
+			write(1, "f\n", 2);
+			if (n->target->content != (*a)->content)
 			{
 				if (n->target->median)
 					rra(a);
 				else
 					ra(a);
+			}
+			write(1, "g\n", 2);
+			if (n != (*b))
+			{
+				if (n->median)
+					rrb(b);
+				else
+					rb(b);
 			}
 		}
 	}
