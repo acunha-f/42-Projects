@@ -19,8 +19,8 @@ static void	rrotate(t_stack **stack, t_stack *last)
 	last->prev->next = NULL;
 	last->next = *stack;
 	last->prev = NULL;
-	last = *stack;
 	last->next->prev = last;
+	last = *stack;
 }
 
 void	rra(t_stack **a)

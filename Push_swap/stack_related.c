@@ -44,6 +44,7 @@ int	stack_size(t_stack **stack)
 void	new_node(t_stack **a, int content)
 {
 	t_stack	*new;
+	t_stack	*last;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
@@ -58,11 +59,11 @@ void	new_node(t_stack **a, int content)
 	}
 	else
 	{
-		new->prev = last_node(*a);
-		new->prev->next = new;
+		last = last_node(*a);
+		last->next = new;
+		new->prev = last;
 	}
 	new->target = NULL;
-	return ;
 }
 
 void	stack_clear(t_stack **stack)

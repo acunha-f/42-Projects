@@ -95,16 +95,21 @@ t_stack	*find_biggest(t_stack **stack)
 {
 	t_stack	*big;
 	t_stack	*temp;
+	int		biggest;
 
 	if (!(*stack))
 		return (NULL);
 	big = *stack;
+	biggest = big->content;
 	temp = *stack;
 	while (temp)
 	{
-		if (big->content < temp->content)
+		if (temp->content > biggest)
+		{
 			big = temp;
+			biggest = big->content;
+		}
 		temp = temp->next;
 	}
-	return (temp);
+	return (big);
 }

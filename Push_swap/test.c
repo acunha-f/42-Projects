@@ -1,6 +1,5 @@
 #include <stdlib.h>
 # include <unistd.h>
-
 typedef struct s_stack
 {
     int                content;
@@ -27,6 +26,7 @@ t_stack    *last_node(t_stack *head)
 void    new_node(t_stack **a, int content)
 {
     t_stack    *new;
+    t_stack    *last;
 
     new = (t_stack *)malloc(sizeof(t_stack));
     if (!new)
@@ -41,8 +41,9 @@ void    new_node(t_stack **a, int content)
     }
     else
     {
-        new->prev = last_node(*a);
-        new->prev->next = new;
+        last = last_node(*a);
+        last->next = new;
+        new->prev = last;
     }
     new->target = NULL;
     return ;

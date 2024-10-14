@@ -35,7 +35,7 @@ void	tiny_sort(t_stack **a, t_stack *big, int len)
 	{
 		if (*a == big)
 			ra(a);
-		if ((*a)->next == big)
+		else if ((*a)->next == big)
 			rra(a);
 		if ((*a)->content > (*a)->next->content)
 			sa(a);
